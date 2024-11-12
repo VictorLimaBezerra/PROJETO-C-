@@ -85,7 +85,7 @@ void ExibirOpcoesDoMenu()
         // Verifica se excedeu o número máximo de tentativas inválidas
         if (contadorTentativasInvalidas >= maximoTentativasInvalidas)
         {
-            Console.WriteLine("Número máximo de tentativas inválidas excedido. Essa é a minha sincera opnião...");
+            Console.WriteLine("Número máximo de tentativas inválidas excedido. Esta é a minha sincera opnião...");
             Thread.Sleep(3000);
             AbrirLinkNoNavegador("https://www.youtube.com/watch?v=lL-cjXPZIHQ"); // Chama a função para abrir o link
             contadorTentativasInvalidas = 0; // Reinicia o contador
