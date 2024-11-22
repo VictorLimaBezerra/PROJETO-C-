@@ -65,7 +65,7 @@ void ExibirOpcoesDoMenu()
                     ExibirNotasBanda();
                     return;
                 case 5:
-                    // Aqui você pode chamar uma função para exibir a média das notas da banda
+                    ExibirMedia();
                     return;
                 case 0:
                     Console.WriteLine("Nós não customizamos, nós TEKUnizamos. Até outro dia.");
@@ -85,7 +85,8 @@ void ExibirOpcoesDoMenu()
         // Verifica se excedeu o número máximo de tentativas inválidas
         if (contadorTentativasInvalidas >= maximoTentativasInvalidas)
         {
-            Console.WriteLine("Número máximo de tentativas inválidas excedido. Esta é a minha sincera opnião...");
+            Console.WriteLine("Número máximo de tentativas inválidas excedido. Est" +
+                "a é a minha sincera opnião...");
             Thread.Sleep(3000);
             AbrirLinkNoNavegador("https://www.youtube.com/watch?v=lL-cjXPZIHQ"); // Chama a função para abrir o link
             contadorTentativasInvalidas = 0; // Reinicia o contador
@@ -203,6 +204,31 @@ void ExibirNotasBanda()
             Console.WriteLine($"A banda {nomeDaBanda} ainda não possui notas atribuídas.");
         }
 
+        Console.WriteLine("Pressione qualquer tecla para voltar ao menu principal.");
+        Console.ReadKey();
+    }
+    else
+    {
+        Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada.");
+        Console.WriteLine("Pressione qualquer tecla para voltar ao menu principal.");
+        Console.ReadKey();
+    }
+
+    Console.Clear();
+    ExibirOpcoesDoMenu();
+}
+
+
+void ExibirMedia()
+{
+    Console.Clear();
+    Console.WriteLine("Média da banda");
+    Console.Write("Digite o nome da banda que deseja saber a média: ");
+    string nomeDaBanda = Console.ReadLine()!;
+    if (bandasRegistradas.ContainsKey(nomeDaBanda))
+    {
+        List<int> notasDaBnda = bandasRegistradas[nomeDaBanda];
+        Console.WriteLine($"\nA média da banda {nomeDaBanda} é: {notasDaBnda.Average()}");
         Console.WriteLine("Pressione qualquer tecla para voltar ao menu principal.");
         Console.ReadKey();
     }
